@@ -1,7 +1,6 @@
 import styles from '../styles/Home.module.css';
 
 export default function Home({ posts }) {
-  console.log(posts);
   return (
     <div className={styles.container}>
       <h1>Welcome my blog</h1>
@@ -30,10 +29,10 @@ export default function Home({ posts }) {
 
 // ssg 방식.
 export const getStaticProps = async () => {
-  // const res = await fetch(
-  //   'https://jsonplaceholder.typicode.com/posts?_start=0&_end=10'
-  // );
-  const res = await fetch('http://localhost:8080/api/posts');
+  const res = await fetch(
+    'https://jsonplaceholder.typicode.com/posts?_start=0&_end=10'
+  );
+  // const res = await fetch('http://localhost:8080/api/posts');
   const posts = await res.json();
   return {
     props: {
